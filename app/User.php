@@ -9,17 +9,17 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,HasRoles;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    protected $table ='users';
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','created_at','updated_at'
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *

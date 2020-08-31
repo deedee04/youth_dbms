@@ -3,7 +3,7 @@
 
 <head>
    
-    <title>NSB</title>
+    <title>Youth DBMS</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,8 @@
     <div id="loading-bar-spinner" class="spinner"><div class="spinner-icon"></div></div>
     <!-- Navbar-->
     <header class="app-header">
-        <a class="app-header__logo" href="#"> <img src="{{ asset('assets/images/logo.png')}}" style="height:40px;width:90px;vertical-align: middle;" alt="logo"> </a>
+        {{-- <a class="app-header__logo" href="#"> <img src="{{ asset('assets/images/logo.png')}}" style="height:40px;width:90px;vertical-align: middle;" alt="logo"> </a> --}}
+        <a class="app-header__logo" href="#"> <span>Youth DBMS</span> </a>
         <!-- Sidebar toggle button-->
         <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
         <!-- Navbar Right Menu-->
@@ -45,7 +46,7 @@
     </header>
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-    @include('partials.admin_menu')
+    @include('partials.menu')
     <main class="app-content">
         @yield('content')
     </main>

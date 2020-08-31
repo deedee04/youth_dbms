@@ -9,6 +9,7 @@
             
             <div class="" style="margin:auto;">
                 <div class="content-form-box">
+                    <h1 class="login-header">YOUTH DBMS</h1>
                     <h1 class="login-header">Login</h1>
                      @include('partials.alerts')
                     <p>Please enter your email and password to login</p>
@@ -33,9 +34,9 @@
                         <button type="submit" id="btnlogin" class="btn btn-color btn-md">Login</button>
                     </form>
                     <hr>
-                        <div class="pull-right">
+                        {{-- <div class="pull-right">
                             <p>Don't have an account?<a href="{{url('/register')}}"> Sign Up Now</a></p>
-                        </div>
+                        </div> --}}
                 </div>
                 
             </div>

@@ -31,7 +31,7 @@
 
 
 
-    <title>NSB</title>
+    <title>Yuth DBMS</title>
   </head>
   <body>
       
