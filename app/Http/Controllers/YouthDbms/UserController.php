@@ -51,7 +51,7 @@ class UserController extends Controller
             }
             return redirect()->back()->with("success","User updated successfully");
         } catch (\Exception $ex) {
-            dd($ex);
+            return redirect()->back()->with("error","Something went wrong");
         }
     }
 
