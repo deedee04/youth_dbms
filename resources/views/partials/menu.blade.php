@@ -1,9 +1,11 @@
 <aside class="app-sidebar">
     <div class="app-sidebar__user"><img class="app-sidebar__user-avatar"
-            src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+            src="{{asset('nsb/img/user.png')}}" 
+            alt="User Image" height="50px" width="50px">
+            
         <div>
             <p class="app-sidebar__user-name">{{ Session::get('name') }}</p>
-            <p class="app-sidebar__user-designation">{{user()->name}}</p>
+            <p class="app-sidebar__user-designation">{{ user()->name }}</p>
         </div>
     </div>
     <ul class="app-menu">
@@ -17,30 +19,32 @@
                         class="treeview-indicator fa fa-angle-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a class="app-menu__item @yield('users')" href="{{ url('users') }}"><i
-                        class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Users</span></a></li>
+                                class="app-menu__icon fa fa-user"></i><span class="app-menu__label">Users</span></a></li>
                 </ul>
             </li>
         @endcan
         @can('can view')
-        <li><a class="app-menu__item @yield('youth_info')" href="{{ url('youth_information') }}"><i
-                    class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Youth Info</span></a></li>
-        <li><a class="app-menu__item @yield('youth_org')" href="{{ url('youth_organizations') }}"><i
-                    class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Youth Orgainzations</span></a>
-        </li>
-        <li><a class="app-menu__item @yield('partners')" href="{{ url('partners') }}"><i
-                    class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Partners</span></a></li>
+            <li><a class="app-menu__item @yield('youth_info')" href="{{ url('youth_information') }}"><i
+                        class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Youth Database</span></a></li>
+            <li><a class="app-menu__item @yield('youth_org')" href="{{ url('youth_organizations') }}"><i
+                        class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Youth Orgainzations</span></a>
+            </li>
+            <li><a class="app-menu__item @yield('partners')" href="{{ url('partners') }}"><i
+                        class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Partners</span></a></li>
+            <li><a class="app-menu__item @yield('community_engagement')" href="{{ url('community_engagement') }}"><i
+                        class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Community Engagement</span></a></li>
         @endcan
 
         @can('send mail')
-        <li class="treeview"><a class="app-menu__item @yield('mail')" href="#" data-toggle="treeview"><i
-                    class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Mail</span><i
-                    class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                <li><a class="app-menu__item @yield('youth_info')" href="{{ url('mail') }}"><i
-                            class="app-menu__icon fa fa-send"></i><span class="app-menu__label">Send Mail</span></a>
-                </li>
-            </ul>
-        </li>
+            <li class="treeview"><a class="app-menu__item @yield('mail')" href="#" data-toggle="treeview"><i
+                        class="app-menu__icon fa fa-envelope"></i><span class="app-menu__label">Mail</span><i
+                        class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a class="app-menu__item @yield('youth_info')" href="{{ url('mail') }}"><i
+                                class="app-menu__icon fa fa-send"></i><span class="app-menu__label">Send Mail</span></a>
+                    </li>
+                </ul>
+            </li>
         @endcan
 
         {{-- logout --}}

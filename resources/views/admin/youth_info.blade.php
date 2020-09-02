@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('users') active @stop
+@section('youth_info') active @stop
 @section('header')
     {{-- summer note --}}
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
@@ -9,7 +9,7 @@
     <div class="app-title">
         <div>
             <h1>
-                <i class="fa fa-user"></i> Youth Info</h1>
+                <i class="fa fa-user"></i> Youth Database</h1>
         </div>
         @can('can create youth')
         <div class="tile-title-w-btn" style="margin-top:16px;">
@@ -335,7 +335,7 @@
             <div class="modal-content">
                 <!--Header-->
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Add Yoth Info</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add Youth Database</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>

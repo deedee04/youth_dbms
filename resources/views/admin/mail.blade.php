@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('users') active @stop
+@section('mail') active @stop
 @section('header')
     {{-- summer note --}}
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">

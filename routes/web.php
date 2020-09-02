@@ -78,3 +78,17 @@ Route::group(['middleware' => ['permission:can create user']], function () {
     Route::post('update_user','YouthDbms\UserController@update');
     Route::get('delete_user/{id}','YouthDbms\UserController@delete_user');
 });
+
+//can view
+Route::group(['middleware' => ['permission:can view']], function () {
+    Route::get('community_engagement','YouthDbms\CommunityEngagementController@index');
+});
+
+// can create community engagement
+Route::group(['middleware' => ['permission:can create community engagement']], function () {
+    Route::post('community_engagement','YouthDbms\CommunityEngagementController@store');
+    Route::post('update_community_engagement','YouthDbms\CommunityEngagementController@update');
+    Route::get('delete_community_engagement/{id}','YouthDbms\CommunityEngagementController@delete');
+    Route::post('upload_community_engagement','YouthDbms\CommunityEngagementController@upload_community_engagement'); 
+    Route::get('upload_community_engagement','YouthDbms\CommunityEngagementController@upload_community_engagement_view'); 
+});

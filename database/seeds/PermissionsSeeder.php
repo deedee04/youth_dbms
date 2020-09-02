@@ -20,6 +20,7 @@ class PermissionsSeeder extends Seeder
                ['name'=>'super admin','guard_name'=>'web','created_at'=>now(),'updated_at'=>now()],
                ['name'=>'can send mail','guard_name'=>'web','created_at'=>now(),'updated_at'=>now()],
                ['name'=>'can view','guard_name'=>'web','created_at'=>now(),'updated_at'=>now()],
+               ['name'=>'can create community engagement','guard_name'=>'web','created_at'=>now(),'updated_at'=>now()],
             ]);
         
         
