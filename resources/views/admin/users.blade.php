@@ -67,7 +67,7 @@
                                     <div class="modal-content">
                                         <!--Header-->
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="myModalLabel">Add Yoth Info</h4>
+                                            <h4 class="modal-title" id="myModalLabel">Add Youth Info</h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span>
                                             </button>
