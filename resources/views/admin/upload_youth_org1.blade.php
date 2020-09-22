@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('youth_info') active @stop
+@section('content') active @stop
 @section('header')
     {{-- summer note --}}
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
@@ -9,23 +9,23 @@
     <div class="app-title">
         <div>
             <h1>
-                <i class="fa fa-user"></i> Youth Organization</h1>
+                <i class="fa fa-user"></i> Youth Info</h1>
         </div>
-        
     </div>
 
     <div class="tile">
         <div class="tile-body">
             @include('partials.alerts')
-            <form method="post" action="{{ url('upload_youth_info') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ url('upload_youth_org') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <a href="{{ asset('assets/excel_template/youth_info_template.xlsx') }}">Download Excel
-                                Template</a>
+                            <a href="{{ asset('assets/excel_template/youth_org_template.xlsx') }}">Download
+                                Excel Template</a>
                         </div>
-                    </div>{{-- end col --}}
+                    </div>{{-- end col
+                    --}}
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -34,23 +34,19 @@
                             <input class="form-control {{ $errors->has('excel_file') ? 'is-invalid' : '' }}"
                                 name="excel_file" id="excel_file" type="file" required>
                             @if ($errors->has('excel_file'))
-                                <div class="form-control-feedback">{{ $errors->first('excel_file') }}</div>
+                                <div class="form-control-feedback">
+                                    {{ $errors->first('excel_file') }}</div>
                             @endif
                         </div>
-                    </div>{{-- end col --}}
+                    </div>{{-- end col
+                    --}}
                 </div>
                 <!--Footer-->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
                     <button class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
-
-    
-
-
-   
 
 @stop
 @section('footer')
