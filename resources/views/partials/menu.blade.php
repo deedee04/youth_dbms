@@ -27,7 +27,7 @@
             <li><a class="app-menu__item @yield('youth_info')" href="{{ url('youth_information') }}"><i
                         class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Youth Database</span></a></li>
             <li><a class="app-menu__item @yield('youth_org')" href="{{ url('youth_organizations') }}"><i
-                        class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Youth Orgainzations</span></a>
+                        class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Youth Organizations</span></a>
             </li>
             <li><a class="app-menu__item @yield('partners')" href="{{ url('partners') }}"><i
                         class="app-menu__icon fa fa-list"></i><span class="app-menu__label">Partners</span></a></li>
