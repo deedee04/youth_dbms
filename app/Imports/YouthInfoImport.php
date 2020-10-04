@@ -7,7 +7,7 @@ use Maatwebsite\Excel\Concerns\ToModel;
 
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class YouthInfoImport implements ToModel
+class YouthInfoImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -20,18 +20,19 @@ class YouthInfoImport implements ToModel
         return new YouthInfo([
             
             'uuid'=> uniqid(),
-            'name'=> $row[0],
-            'dob'=> $row[1],
-            'age'=> $row[2],
-            'gender'=> $row[3],
-            'nationality'=> $row[4],
-            'email'=> $row[5],
-            'phone'=> $row[6],
-            'education'=> $row[7],
-            'occupation'=> $row[8],
-            'thematic_area'=> $row[9],
-            'data_source'=> $row[10],
-            'year'=> $row[11],
+            'name'=> $row['name'],
+            'dob'=> $row['dob'],
+            'age'=> $row['age'],
+            'gender'=> $row['gender'],
+            'nationality'=> $row['nationality'],
+            'email'=> $row['email'],
+            'phone'=> $row['phone'],
+            'education'=> $row['education'],
+            'occupation'=> $row['occupation'],
+            'thematic_area'=> $row['thematic_area'],
+            'data_source'=> $row['data_source'],
+            'year'=> $row['year'],
+
         ]);
     }
 }

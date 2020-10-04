@@ -23,7 +23,7 @@
     <div id="loading-bar-spinner" class="spinner"><div class="spinner-icon"></div></div>
     <!-- Navbar-->
     <header class="app-header">
-        <a class="app-header__logo" href="#"> <img src="{{ asset('assets/images/logo.jpeg')}}" style="height:40px;width:90px;vertical-align: middle;margin-bottom:5px" alt="logo"> </a>
+        <a class="app-header__logo px-0" href="#"> <img src="{{asset('assets/images/logo.jpeg')}}" style="width:100%; height:80px;" alt="logo"> </a>
         {{-- <a class="app-header__logo" href="#"> <span>Youth DBMS</span> </a> --}}
         <!-- Sidebar toggle button-->
         <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>

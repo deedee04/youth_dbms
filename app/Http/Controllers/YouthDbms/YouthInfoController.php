@@ -63,6 +63,7 @@ class YouthInfoController extends Controller
             Excel::import(new YouthInfoImport,request()->file('excel_file'));
             return redirect()->back()->with("success","Youth data uploaded successfully");
         } catch (\Exception $ex) {
+            dd($ex);
             return redirect()->back()->with("error","Something went wrong");
         }
     }
