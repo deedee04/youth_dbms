@@ -43,6 +43,7 @@ class YouthOrgController extends Controller
     }
 
     public function upload_youth_org(Request $request){
+        dd("here");
         $this->validate($request,[
             'excel_file'=>'required|mimes:xls,xlsx'
         ]);
@@ -55,6 +56,6 @@ class YouthOrgController extends Controller
     }
 
     public function upload_youth_org_view(){
-        return view('Admin.upload_youth_org');
+        return view('admin.upload_youth_org');
     }
 }

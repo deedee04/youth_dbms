@@ -30,10 +30,10 @@
                     <thead>
                         <tr>
                             <th>NameOfOrganization</th>
-                            <th>CountryOfOragnization</th>
+                            <th>CountryOfOrganization</th>
                             <th>Location</th>
-                            <th>LegalStatus</th>
-                            <th>ThematicFocus</th>
+                            <th>Legal Status</th>
+                            <th>Thematic Focus</th>
                             <th>Phone</th>
                             <th>Email</th>
                             <th>Website</th>
