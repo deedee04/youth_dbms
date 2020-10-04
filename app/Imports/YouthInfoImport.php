@@ -29,8 +29,8 @@ class YouthInfoImport implements ToModel, WithHeadingRow
             'phone'=> $row['phone'],
             'education'=> $row['education'],
             'occupation'=> $row['occupation'],
-            'thematic_area'=> $row['thematic_area'],
-            'data_source'=> $row['data_source'],
+            'thematic_area'=> $row['thematicarea'],
+            'data_source'=> $row['datasource'],
             'year'=> $row['year'],
 
         ]);
