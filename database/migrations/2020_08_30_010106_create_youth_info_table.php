@@ -16,18 +16,18 @@ class CreateYouthInfoTable extends Migration
         Schema::create('youth_info', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid');
-            $table->string('name');
-            $table->string('dob');
-            $table->string('age');
-            $table->string('gender');
-            $table->string('nationality');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('education');
-            $table->string('occupation');
-            $table->string('thematic_area');
-            $table->string('data_source');
-            $table->string('year');
+            $table->string('name')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('age')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('education')->nullable();
+            $table->string('occupation')->nullable();
+            $table->string('thematic_area')->nullable();
+            $table->string('data_source')->nullable();
+            $table->string('year')->nullable();
             $table->timestamps();
         });
     }
