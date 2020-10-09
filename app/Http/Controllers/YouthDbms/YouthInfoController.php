@@ -17,8 +17,8 @@ class YouthInfoController extends Controller
     public function index()
     {
        try {
-           $youthInfos = YouthInfo::all(); 
-        return view('admin.youth_info',compact('youthInfos'));
+            $youthInfos = YouthInfo::all(); 
+            return view('admin.youth_info',compact('youthInfos'));
        } catch (\Exception $ex) {
            return redirect()->back()->with("error","Ooops! Something went wrong, contact the administrator");
        }
@@ -56,9 +56,9 @@ class YouthInfoController extends Controller
     }
 
     public function upload_youth_info(Request $request){
-        $this->validate($request,[
-            'excel_file'=>'required|mimes:xls,xlsx'
-        ]);
+        // $this->validate($request,[
+        //     'excel_file'=>'required|mimes:xls,xlsx'
+        // ]);
         try {
             Excel::import(new YouthInfoImport,request()->file('excel_file'));
             return redirect()->back()->with("success","Youth data uploaded successfully");
