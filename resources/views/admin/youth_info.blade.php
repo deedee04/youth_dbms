@@ -321,6 +321,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{ $youthInfos->links() }}
             </div>
         </div>
     </div>

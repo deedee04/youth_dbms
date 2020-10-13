@@ -4,10 +4,11 @@ namespace App\Imports;
 
 use App\Models\YouthInfo;
 use Maatwebsite\Excel\Concerns\ToModel;
-
+use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 
-class YouthInfoImport implements ToModel, WithHeadingRow
+class YouthInfoImport implements ToModel, WithHeadingRow, WithBatchInserts,WithChunkReading
 {
     /**
     * @param array $row
@@ -26,13 +27,23 @@ class YouthInfoImport implements ToModel, WithHeadingRow
             'gender'=> $row['gender'],
             'nationality'=> $row['nationality'],
             'email'=> $row['email'],
-            'phone'=> $row['phone'],
+            // 'phone'=> $row['phone'],
             'education'=> $row['education'],
             'occupation'=> $row['occupation'],
-            'thematic_area'=> $row['thematicarea'],
-            'data_source'=> $row['datasource'],
+            'thematic_area'=> $row['thematic_area'],
+            'data_source'=> $row['data_source'],
             'year'=> $row['year'],
 
         ]);
+    }
+
+    public function batchSize(): int
+    {
+        return 1000;
+    }
+
+    public function chunkSize(): int
+    {
+        return 1000;
     }
 }

@@ -17,9 +17,10 @@ class YouthInfoController extends Controller
     public function index()
     {
        try {
-            $youthInfos = YouthInfo::all(); 
+            $youthInfos = YouthInfo::paginate(10); 
             return view('admin.youth_info',compact('youthInfos'));
        } catch (\Exception $ex) {
+           dd($ex);
            return redirect()->back()->with("error","Ooops! Something went wrong, contact the administrator");
        }
     }
