@@ -17,7 +17,7 @@
     <div class="tile">
         <div class="tile-body">
             @include('partials.alerts')
-            <form method="post" action="{{ url('upload_youth_info') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ url('upload_youth_org') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">

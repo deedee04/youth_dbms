@@ -43,7 +43,7 @@ class YouthOrgController extends Controller
     }
 
     public function upload_youth_org(Request $request){
-        dd("here");
+        // dd("here");
         $this->validate($request,[
             'excel_file'=>'required|mimes:xls,xlsx'
         ]);
@@ -51,6 +51,7 @@ class YouthOrgController extends Controller
             Excel::import(new YouthOrgImport,request()->file('excel_file'));
             return redirect()->back()->with("success","Youth data uploaded successfully");
         } catch (\Exception $ex) {
+            dd($ex);
             return redirect()->back()->with("error","Something went wrong");
         }
     }

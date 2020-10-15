@@ -6,7 +6,7 @@ use App\Models\YouthOrg;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class YouthOrgImport implements ToModel
+class YouthOrgImport implements ToModel,WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,16 +15,17 @@ class YouthOrgImport implements ToModel
     */
     public function model(array $row)
     {
+        // dd($row);
         return new YouthOrg([
             'uuid'=> uniqid(),
-            'name'=> $row[0],
-            'country'=> $row[1],
-            'location'=> $row[2],
-            'legal_status'=> $row[3],
-            'thematic_focus'=> $row[4],
-            'phone'=> $row[5],
-            'email'=> $row[6],
-            'website'=> $row[7],
+            'name'=> $row['name'],
+            'country'=> isset($row['country']) ? $row['country']: '-',
+            'location'=> $row['location'],
+            'legal_status'=> $row['legal_status'],
+            'thematic_focus'=> $row['thematic_focus'],
+            'phone'=> $row['phone'],
+            'email'=> $row['email'],
+            'website'=> $row['website'],
         ]);
     }
 }

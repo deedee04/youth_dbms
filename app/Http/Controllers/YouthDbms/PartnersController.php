@@ -19,12 +19,13 @@ class PartnersController extends Controller
         try {
             $request['uuid'] = uniqid();
             Partners::create($request->all());
-            return redirect()->back()->with("success","Partners information updated successfully");
+            return redirect()->back()->with("success","Partners added successfully");
         } catch (\Exception $ex) {
             return redirect()->back()->with("error","Something went wrong");
 
         }
     }
+
 
     public function destroy($id){
         try {
@@ -37,6 +38,7 @@ class PartnersController extends Controller
     }
 
     public function upload_partners(Request $request){
+        // dd("here");
         $this->validate($request,[
             'excel_file'=>'required|mimes:xls,xlsx'
         ]);
@@ -44,6 +46,7 @@ class PartnersController extends Controller
             Excel::import(new PartnersImport,request()->file('excel_file'));
             return redirect()->back()->with("success","Youth data uploaded successfully");
         } catch (\Exception $ex) {
+            dd($ex);
             return redirect()->back()->with("error","Something went wrong");
         }
     }

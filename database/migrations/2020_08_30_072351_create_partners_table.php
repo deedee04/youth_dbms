@@ -16,23 +16,21 @@ class CreatePartnersTable extends Migration
         Schema::create('partners', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid');    
-            $table->string('organization');    
-            $table->string('region');    
-            $table->string('country');    
-            $table->string('address');    
-            $table->string('type_of_org');    
-            $table->string('name_of_focus_person');    
-            $table->string('phone');    
-            $table->string('email');    
-            $table->string('website');    
-            $table->string('position');    
-            $table->string('organization_review');    
-            $table->string('area_of_focus');    
-            $table->string('source_funding');    
-            $table->string('thematic_area');    
-            $table->string('services_offered');    
-            $table->string('youth_focused_projects');    
-            $table->string('agreement_with_auc');    
+            $table->string('organization')->nullable();  
+            $table->string('region')->nullable();      
+            $table->string('country')->nullable();         
+            $table->string('type_of_org')->nullable();     
+            $table->string('name_of_focus_person')->nullable();            
+            $table->string('position')->nullable();      
+            $table->string('organization_overview')->nullable();     
+            $table->string('area_of_focus')->nullable();    
+            $table->string('source_funding')->nullable();  
+            $table->string('thematic_area')->nullable();     
+            $table->string('services_offered')->nullable();      
+            $table->string('youth_focused_projects')->nullable();    
+            $table->string('agreement_with_auc')->nullable(); 
+            $table->string('email')->nullable();
+            $table->string('website')->nullable();
             $table->timestamps();
         });
     }
