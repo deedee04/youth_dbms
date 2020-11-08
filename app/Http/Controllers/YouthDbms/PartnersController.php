@@ -44,7 +44,7 @@ class PartnersController extends Controller
         ]);
         try {
             Excel::import(new PartnersImport,request()->file('excel_file'));
-            return redirect()->back()->with("success","Youth data uploaded successfully");
+            return redirect()->back()->with("success","Partner data uploaded successfully");
         } catch (\Exception $ex) {
             dd($ex);
             return redirect()->back()->with("error","Something went wrong");

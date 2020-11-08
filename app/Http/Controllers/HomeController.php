@@ -31,7 +31,9 @@ class HomeController extends Controller
         $countPartners = Partners::all()->count();
         $countYouthInfo = YouthInfo::all()->count();
         $countYouthOrg = YouthOrg::all()->count();
+        $countCom = YouthOrg::all()->count();
 
-        return view('home',compact('countUser','countPartners','countYouthOrg','countYouthInfo'));
+
+        return view('home',compact('countUser','countPartners','countYouthOrg','countYouthInfo', 'countCom'));
     }
 }

@@ -41,6 +41,15 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="widget-small warning coloured-icon"><i class="icon fa fa-building fa-3x"></i>
+                    <div class="info">
+                        <h4>Community Eng.</h4>
+                        <p><b>{{$countCom}}</b></p>
+                    </div>
+                </div>
+            </div>
+
             @endcan
         </div>
     @stop

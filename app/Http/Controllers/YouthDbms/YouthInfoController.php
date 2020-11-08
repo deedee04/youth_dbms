@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\YouthInfo;
 use App\Imports\YouthInfoImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Datatables;
 class YouthInfoController extends Controller
 {
     /**
@@ -16,13 +17,18 @@ class YouthInfoController extends Controller
      */
     public function index()
     {
-       try {
-            $youthInfos = YouthInfo::paginate(10); 
-            return view('admin.youth_info',compact('youthInfos'));
+        try {
+           $youthInfos = YouthInfo::paginate(10 * request('page',1)); 
+         //  return $youthInfos;
+        return view('admin.youth_info',compact('youthInfos'));
        } catch (\Exception $ex) {
-           dd($ex);
            return redirect()->back()->with("error","Ooops! Something went wrong, contact the administrator");
        }
+    }
+
+    public function fetch(){
+        return Datatables::of(YouthInfo::query())->make(true);
+
     }
 
     /**
@@ -57,9 +63,9 @@ class YouthInfoController extends Controller
     }
 
     public function upload_youth_info(Request $request){
-        // $this->validate($request,[
-        //     'excel_file'=>'required|mimes:xls,xlsx'
-        // ]);
+        $this->validate($request,[
+            'excel_file'=>'required|mimes:xls,xlsx'
+        ]);
         try {
             Excel::import(new YouthInfoImport,request()->file('excel_file'));
             return redirect()->back()->with("success","Youth data uploaded successfully");

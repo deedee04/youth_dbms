@@ -24,6 +24,31 @@
     <div class="tile">
         <div class="tile-body">
             @include('partials.alerts')
+
+
+           {{-- <table class="table table-hover table-bordered " id="stable1">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>DOB</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Nationality</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Education</th>
+                            <th>Occupation</th>
+                            <th>ThematicArea</th>
+                            <th>DataSource/Program</th>
+                            <th>Year</th>
+                            <th>CreatedAt</th>
+                            @can('can create youth')
+                            <th>Action</th>
+                            @endcan
+                        </tr>
+                    </thead></table>--}}
+
+
             <div class="table-responsive">
                 <table class="table table-hover table-bordered " id="sampleTable">
                     <thead>
@@ -517,10 +542,20 @@
             $('.summernote2').summernote();
         });
 
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
+
+            $('#stable1').DataTable({
+                processing: true,
+                 serverSide: true,
+                //"ajax": "/api/youth-info",
+                ajax: '{{ route('fetchYouthInfo') }}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'email', name: 'email' },
+                    { data: 'created_at', name: 'created_at' }
+                ]
+
+            });
         });
 
     </script>

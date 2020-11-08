@@ -4,8 +4,10 @@ namespace App\Imports;
 
 use App\Models\CommunityEngagement;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class CommunityEngagementImport implements ToModel
+
+class CommunityEngagementImport implements ToModel,WithHeadingRow
 {
     /**
     * @param array $row
@@ -16,14 +18,14 @@ class CommunityEngagementImport implements ToModel
     {
         return new CommunityEngagement([
             'uuid'=> uniqid(),
-            'name'=> $row[0],
-            'age'=> $row[1],
-            'country'=> $row[2],
-            'region'=> $row[3],
-            'languages_spoken'=> $row[4],
-            'organization'=> $row[5],
-            'thematic_area'=> $row[6],
-            'email'=> $row[7],
+            'name'=> $row['first_name'] . ' '.  $row['last_name'],
+            'age'=> $row['age'],
+            'country'=> $row['country'],
+            'region'=> $row['region'],
+            'languages_spoken'=> $row['languages_spoken'],
+            'organization'=> $row['organization'],
+            'thematic_area'=> $row['thematic_area'],
+            'email'=> $row['email'],
         ]);
     }
 }
