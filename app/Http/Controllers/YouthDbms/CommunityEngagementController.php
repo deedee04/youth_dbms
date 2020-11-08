@@ -58,6 +58,7 @@ class CommunityEngagementController extends Controller
             Excel::import(new CommunityEngagementImport,request()->file('excel_file'));
             return redirect()->back()->with("success","Community Engagement data uploaded successfully");
         } catch (\Exception $ex) {
+           // dd($ex);
             return redirect()->back()->with("error","Something went wrong");
         }
     }

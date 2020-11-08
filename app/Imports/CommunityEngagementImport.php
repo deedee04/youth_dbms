@@ -18,14 +18,14 @@ class CommunityEngagementImport implements ToModel,WithHeadingRow
     {
         return new CommunityEngagement([
             'uuid'=> uniqid(),
-            'name'=> $row['first_name'] . ' '.  $row['last_name'],
-            'age'=> $row['age'],
-            'country'=> $row['country'],
-            'region'=> $row['region'],
-            'languages_spoken'=> $row['languages_spoken'],
-            'organization'=> $row['organization'],
-            'thematic_area'=> $row['thematic_area'],
-            'email'=> $row['email'],
+            'name'=> $row['first_name'] ??"-". ' '.  $row['last_name']??"-",
+            'age'=> $row['age']??"-",
+            'country'=> $row['country']??"-",
+            'region'=> $row['region']??"-",
+            'languages_spoken'=> $row['languages_spoken']??"-",
+            'organization'=> $row['organization']??"-",
+            'thematic_area'=> $row['thematic_area']??"-",
+            'email'=> $row['email']??"-",
         ]);
     }
 }

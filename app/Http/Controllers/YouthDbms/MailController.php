@@ -14,7 +14,8 @@ class MailController extends Controller
             $youthInfos = YouthInfo::all(); 
          return view('admin.mail',compact('youthInfos'));
         } catch (\Exception $ex) {
-            return redirect()->back()->with("error","Ooops! Something went wrong, contact the administrator");
+            dd($ex);
+            // return redirect()->back()->with("error","Ooops! Something went wrong, contact the administrator");
         }
     }
 

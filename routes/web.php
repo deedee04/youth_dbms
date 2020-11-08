@@ -65,11 +65,11 @@ Route::group(['middleware' => ['permission:can view']], function () {
 });
 
 // mails
-Route::group(['middleware' => ['permission:send mail']], function () {
+Route::group(['middleware' => ['permission:can send mail']], function () {
     Route::get('mail','YouthDbms\MailController@index');
     Route::post('send_mail','YouthDbms\MailController@send_mail');
 
-});
+ }); 
 
 // can create user
 Route::group(['middleware' => ['permission:can create user']], function () {
