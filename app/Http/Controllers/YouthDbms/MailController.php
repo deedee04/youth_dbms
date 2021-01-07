@@ -9,22 +9,33 @@ use App\Jobs\Mail;
 
 class MailController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         try {
-            $youthInfos = YouthInfo::all(); 
-         return view('admin.mail',compact('youthInfos'));
+            // $youthInfos = YouthInfo::all();compact('youthInfos')
+
+            $data['countries'] = YouthInfo::selectRaw('distinct nationality as country')->orderBy('nationality')->get();
+
+            return view('admin.mail', $data);
         } catch (\Exception $ex) {
             dd($ex);
             // return redirect()->back()->with("error","Ooops! Something went wrong, contact the administrator");
         }
     }
 
-    public function send_mail(Request $request){
-       try {
-        dispatch( new Mail($request->all()));
-        return redirect()->back()->with("success","Mail Sent Successfully");
-       } catch (\Exception $ex) {
-        return redirect()->back()->with("error","Something went wrong");
-       }
+    public function send_mail(Request $request)
+    {
+
+        // dd($request->all());
+
+        $this->validate($request, [
+            'subject' => 'required',
+            'message' => 'required',
+            'gender' => 'required',
+            'country' => 'required',
+        ]);
+
+        dispatch(new Mail($request->all()));
+        return redirect()->back()->with("success", "Mail Sent Successfully");
     }
 }

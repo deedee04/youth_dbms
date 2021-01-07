@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Mail\MailYouth;
+use App\Models\YouthInfo;
 
 class Mail implements ShouldQueue
 {
@@ -31,9 +32,16 @@ class Mail implements ShouldQueue
      */
     public function handle()
     {
-        // dd($this->request['subject']);
-        for ($i=0; $i < count($this->request['email']) ; $i++) { 
-            \Mail::to($this->request['email'][$i])->send(new MailYouth($this->request));
+
+        $data = $this->request;
+
+        $users = YouthInfo::whereIn('gender', $data['gender'])
+            ->whereIn('nationality', $data['country'])->selectRaw('email')->get();
+
+        // dd(count($users));
+
+        foreach ($users as $user) {
+            \Mail::to($user->email)->send(new MailYouth($this->request));
         }
     }
 }

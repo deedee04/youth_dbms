@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CommunityEngagement;
 use Illuminate\Http\Request;
 use App\User;
 use App\Models\Partners;
@@ -27,13 +28,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $countUser = User::all()->count();
-        $countPartners = Partners::all()->count();
-        $countYouthInfo = YouthInfo::all()->count();
-        $countYouthOrg = YouthOrg::all()->count();
-        $countCom = YouthOrg::all()->count();
+        $countUser = User::count();
+        $countPartners = Partners::count();
+        $countYouthInfo = YouthInfo::count();
+        $countYouthOrg = YouthOrg::count();
+        $countCom = CommunityEngagement::count();
 
 
-        return view('home',compact('countUser','countPartners','countYouthOrg','countYouthInfo', 'countCom'));
+        return view('home', compact('countUser', 'countPartners', 'countYouthOrg', 'countYouthInfo', 'countCom'));
     }
 }
