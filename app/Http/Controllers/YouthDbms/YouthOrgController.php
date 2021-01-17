@@ -15,9 +15,25 @@ class YouthOrgController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = YouthOrg::all();
+            $data = YouthOrg::query();
             return Datatables::of($data)
-                ->addIndexColumn()
+                ->filter(function ($instance) use ($request) {
+
+                    if ($request->get('searchName')) {
+                        $instance->whereRaw('lower(name) like ? ', '%' . strtolower($request->get('searchName')) . '%');
+                    }
+                    if ($request->get('searchCountry')) {
+                        $instance->whereRaw('lower(country) like ? ', '%' . strtolower($request->get('searchCountry')) . '%');
+                    }
+
+                    // if (!empty($request->get('search'))) {
+                    //     $instance->where(function ($w) use ($request) {
+                    //         $search = $request->get('search');
+                    //         $w->orWhere('name', 'LIKE', "%$search%")
+                    //             ->orWhere('email', 'LIKE', "%$search%");
+                    //     });
+                    // }
+                })->addIndexColumn()
                 ->addColumn('action', function ($row) {
 
                     // $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';

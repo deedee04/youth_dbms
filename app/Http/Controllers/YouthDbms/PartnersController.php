@@ -10,9 +10,18 @@ use App\Imports\PartnersImport;
 
 class PartnersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $partners = Partners::all();
+        $partners = Partners::when(isset($request->name), function ($query) use ($request) {
+            $name = strtolower($request->name);
+            $query->whereRaw("lower(organization) like '%$name%'");
+        })->when(isset($request->type), function ($query) use ($request) {
+            $type = strtolower($request->type);
+            $query->whereRaw("lower(type_of_org) like '%$type%'");
+        })->when(isset($request->region), function ($query) use ($request) {
+            $region = strtolower($request->region);
+            $query->whereRaw("lower(region) like '%$region%'");
+        })->get();
         return view('admin.partners', compact('partners'));
     }
 

@@ -22,6 +22,26 @@
     @endcan
 </div>
 
+<form action="" method="get">
+    <div class="row mb-2">
+        <div class="col-md-3">
+            <input placeholder="Search Name" value="{{request('name')}}" name="name" class='form-control'
+                id='searchName' />
+        </div>
+        <div class="col-md-3">
+            <input placeholder="Search Type" value="{{request('type')}}" name="type" class='form-control'
+                id='searchType' />
+        </div>
+        <div class="col-md-3">
+            <input placeholder="Search Region" value="{{request('region')}}" name="region" class='form-control'
+                id='searchRegion' />
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+
 <div class="tile">
     <div class="tile-body">
         @include('partials.alerts')
@@ -33,7 +53,7 @@
                         <th>Name</th>
                         <th>Region</th>
                         <th>Country</th>
-                        <th>Address</th>
+                        {{-- <th>Address</th> --}}
                         <th>Type</th>
                         <th>Focus Person</th>
                         <th>Phone</th>
@@ -77,7 +97,7 @@
                         <td>{{ $info->organization }}</td>
                         <td>{{ $info->region }}</td>
                         <td>{{ $info->country }}</td>
-                        <td>{{ $info->address }}</td>
+                        {{-- <td>{{ $info->address }}</td> --}}
                         <td>{{ $info->type_of_org }}</td>
                         <td>{{ $info->name_of_focus_person }}</td>
                         <td>{{ $info->phone }}</td>

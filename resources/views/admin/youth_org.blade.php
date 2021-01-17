@@ -21,7 +21,15 @@
     </div>
     @endcan
 </div>
+<div class="row mb-2">
+    <div class="col-md-4">
+        <input placeholder="Search Name" class='form-control' id='searchName' />
+    </div>
+    <div class="col-md-4">
+        <input placeholder="Search Country" class='form-control' id='searchCountry' />
+    </div>
 
+</div>
 <div class="tile">
     <div class="tile-body">
         @include('partials.alerts')
@@ -194,7 +202,14 @@
             var table = $('#table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ url('youth_organizations') }}",
+            ajax: {
+                url:'{{ url('youth_organizations') }}',
+                data: function (d) {
+                d.searchName = $('#searchName').val(),
+                d.searchCountry = $('#searchCountry').val(),
+                d.search = $('input[type="search"]').val()
+                }
+            },
             columns: [
             // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
@@ -208,6 +223,11 @@
             {data: 'website', name: 'website'},
             {data: 'created_at', name: 'created_at'},
             ]
+            });
+
+
+            $('#searchName,#searchCountry').on('input',function(){
+            table.draw();
             });
         });
 

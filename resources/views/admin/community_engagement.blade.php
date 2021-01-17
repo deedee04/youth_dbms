@@ -21,10 +21,26 @@
     @endcan
 </div>
 
+<form action="" method="get">
+    <div class="row mb-2">
+        <div class="col-md-4">
+            <input placeholder="Search Name" value="{{request('name')}}" name="name" class='form-control'
+                id='searchName' />
+        </div>
+        <div class="col-md-4">
+            <input placeholder="Search Thematic area" value="{{request('thematic_area')}}" name="thematic_area"
+                class='form-control' id='searchArea' />
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
 <div class="tile">
     <div class="tile-body">
         @include('partials.alerts')
         <div class="table-responsive">
+
             <table class="table table-hover table-bordered " id="sampleTable">
                 <thead>
                     <tr> @can('can create community engagement')
